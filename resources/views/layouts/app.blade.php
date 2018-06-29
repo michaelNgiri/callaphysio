@@ -32,30 +32,27 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-                    <!-- <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-                        <div class="container">
-                            <div class="container">
-                    <div class="row">
-                        <div class="col 2">
-                            <a class="navbar-brand" href="{{ url('/') }}">
-                                {{ config('app.name', 'cap') }}
-                            </a>
-                        </div>
-                        <div class="col 12 push-2 red-text hoverable">
-                            
-                        </div>
-                    </div>
-                </div>
- -->
-                
+                          
 
-      <!--           
-        <main class="py-4">
-           // @yield('content')
-        </main> -->
+      
     
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 </body>
+
+
+<!--  <footer class="theFooter">
+  	<p>&copy; {{ config('app.name', 'Call A Physio') }} 2018</p><hr>
+    	<div >
+    	<div style="float: left; text-align: left; color: #f3f3f3;">
+    	
+    	<p><a class="footerItem" href="#">Faqs</a> </p>
+    	<p><a class="footerItem" href="#">Terms and Conditions</a> </p>
+  		</div>
+     		<div  style="float: right; text-align: right;" class="">
+                      <span><i class="fa fa-envelope"><a href="mailto:Support@callaphysio.com" class="footerItem">Raadaa Hire Support</a> </i></span>
+     		</div>		
+    	</div><br>
+ </footer>-->
 </html>

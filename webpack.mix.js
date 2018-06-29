@@ -17,7 +17,7 @@ let mix = require('laravel-mix');
    			'resources/assets/js/materialize.min.js',
    			'resources/assets/js/main.js',
             'public/js/app.js',
-            'public/js/jquery-3.3.1.js'
+            'public/js/jquery-3.3.1.min.js'
         ], 
         'public/js/app.js')
    .styles([

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.app-navbar');
+    return view('index');
 });
 
 Auth::routes();
@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/subscription', 'SubscriptionController@index');

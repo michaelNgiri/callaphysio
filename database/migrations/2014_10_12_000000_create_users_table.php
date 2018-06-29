@@ -19,22 +19,32 @@ class CreateUsersTable extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('middle_name')->nullable();
+            $table->unsignedInteger('user_type')->default(3);
             $table->string('photo', 2000)->nullable();
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('password');
             $table->string('website')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('instagram')->nullable();
             $table->string('reg')->nullable();
             $table->string('expertise')->nullable();
-            $table->text('biography')->nullable();
+            $table->text('bio')->nullable();
             $table->string('facebook_id')->nullable();
             $table->string('google_id')->nullable();
             $table->text('preferences')->nullable();
             $table->timestamp('approved_at')->nullable();
             $table->rememberToken();
-            $table->unsignedTinyInteger('status')->default(1);
             $table->nullableTimestamps();
             $table->softDeletes();
+
+            $table->foreign('user_type', 'user_type_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
