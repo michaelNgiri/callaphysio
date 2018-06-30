@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <div class="nav-wrapper">
-   <nav class="red darken-4" role="navigation">
+   <nav class="red darken-4 navbar navbar-nav fixed-top" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo"><img style="border-radius:60%;" src="{{ asset('images/cap-icon-small.jpg')}}"> </a>
       <ul class="right hide-on-med-and-down white-text">
