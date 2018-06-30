@@ -1,4 +1,4 @@
-@extends('layouts.app-navbar')
+@extends('layouts.app')
 <!--<div class="container">
     <div class="row callToAction">
         <div class="col-md-4">
@@ -15,3 +15,11 @@
     </div>
     
 </div>-->
+
+@section('page-contents')
+    <div class="card">
+        <div class="card-header teal">
+    page contents here
+        </div>
+    </div>
+@endsection

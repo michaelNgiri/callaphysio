@@ -20,7 +20,7 @@
     </div>
   </nav>
 </div>
-
+@yield('page-contents')
 
 
 
