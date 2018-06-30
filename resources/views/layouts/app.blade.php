@@ -42,7 +42,7 @@
 </body>
 
 
-<!--  <footer class="theFooter">
+ <footer class="theFooter">
   	<p>&copy; {{ config('app.name', 'Call A Physio') }} 2018</p><hr>
     	<div >
     	<div style="float: left; text-align: left; color: #f3f3f3;">
@@ -54,5 +54,5 @@
                       <span><i class="fa fa-envelope"><a href="mailto:Support@callaphysio.com" class="footerItem">Raadaa Hire Support</a> </i></span>
      		</div>		
     	</div><br>
- </footer>-->
+ </footer>
 </html>
