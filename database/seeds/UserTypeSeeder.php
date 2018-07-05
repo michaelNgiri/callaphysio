@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\UserType;
 
 class UserTypeSeeder extends Seeder
 {
@@ -11,6 +12,17 @@ class UserTypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $userTypes =[
+        	'regular',
+        	'physioherapist',
+        	'super_user',
+        	'admin',
+        	'super_admin'
+
+        ];
+
+        foreach ($userTypes as $userType) {
+        	UserType::create(['name'=>$userType]);
+        }
     }
 }

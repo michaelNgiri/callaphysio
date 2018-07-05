@@ -16,8 +16,8 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug', 190)->unique();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('middle_name')->nullable();
             $table->unsignedInteger('user_type')->default(3);
             $table->string('photo', 2000)->nullable();
@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('instagram')->nullable();
+            $table->string('other')->nullable();
             $table->string('reg')->nullable();
             $table->string('expertise')->nullable();
             $table->text('bio')->nullable();
@@ -36,13 +36,14 @@ class CreateUsersTable extends Migration
             $table->string('google_id')->nullable();
             $table->text('preferences')->nullable();
             $table->timestamp('approved_at')->nullable();
+            $table->timestamp('blocked_at')->nullable();
             $table->rememberToken();
             $table->nullableTimestamps();
             $table->softDeletes();
 
             $table->foreign('user_type', 'user_type_id')
                 ->references('id')
-                ->on('users')
+                ->on('user_types')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
