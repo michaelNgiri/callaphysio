@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header red darken-4 white-text"><b>{{ __('Register') }}</b></div>
+                <div class="card-header red lighten-2 white-text"><b>{{ __('Register') }}</b></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -88,7 +88,7 @@
                         <input name="email_verification_code" type="hidden" value="{{str_random(33).date('Y-m-d-m-i-s')}}">
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary red darken-5">
                                     {{ __('Register') }}
                                 </button>
                             </div>
