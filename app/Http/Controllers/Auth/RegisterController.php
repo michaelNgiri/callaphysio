@@ -63,7 +63,7 @@ class RegisterController extends Controller
      */
      protected function create(array $data)
     {
-//        prevent a slug from occurring twice in the users table
+//        prevent any particular slug from occurring twice in the users table
         $slug = $maybe_slug = strtolower($data['first_name'] . '-' . $data['last_name']);
         $next = 2;
 
