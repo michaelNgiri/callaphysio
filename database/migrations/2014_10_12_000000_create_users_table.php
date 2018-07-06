@@ -21,6 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('middle_name')->nullable();
             $table->unsignedInteger('user_type')->default(3);
             $table->string('photo', 2000)->nullable();
+            $table->string('address')->nullable();
+            $table->unsignedInteger('city')->nulable();
+            $table->unsignedInteger('state')->nulable();
+            $table->unsignedInteger('country')->nulable();
+            $table->string('map_coordinates')->nulable();
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('password');
@@ -44,6 +49,24 @@ class CreateUsersTable extends Migration
             $table->foreign('user_type', 'user_type_id')
                 ->references('id')
                 ->on('user_types')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            
+            $table->foreign('city','city_id')
+                ->references('id')
+                ->on('cities')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            
+            $table->foreign('state', 'state_id')
+                ->references('id')
+                ->on('states')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('country', 'country_id')
+                ->references('id')
+                ->on('countries')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
