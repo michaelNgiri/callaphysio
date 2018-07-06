@@ -11,7 +11,7 @@
 
                         </div>
                         <div class="card-footer">
-                            view direction on Map
+                            <a href="{{route('physio.map-view',['physio'=>$closestPhysio])}}">view direction on M</a>ap
                         </div>
                     </div>
                 @empty
