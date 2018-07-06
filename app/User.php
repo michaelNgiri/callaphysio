@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Specialization;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -95,37 +96,27 @@ class User extends Authenticatable
     }
 
     /**
-     * the users primary and secondary role is fetched from the skills table
-     * skills table has an accompanying seeder
+     * the users primary and secondary role is fetched from the specializations table
+     * specializations table has an accompanying seeder
      * @return null
      */
-    public function primaryRole(){
-        if ($this->primary_role) {
-            return Skill::find($this->primary_role);
+    public function Specialization(){
+        if ($this->specialization) {
+            return Specialization::find($this->specialization);
         }else{
             return null;
         }
     }
 
-    /**
-     * same pattern as the primary role but can be ignored when checking users profile update status
-     * @return null
-     */
-    public function secondaryRole(){
-        if ($this->secondary_role) {
-            return Skill::find($this->secondary_role);
+
+    public function otherQualification(){
+        if ($this->other_qualification) {
+            return Specialization::find($this->other_qualification);
         }else{
             return null;
         }
     }
 
-    /**
-     * this availability is fetched from availabilities table to ensure uniformity
-     * @return mixed
-     */
-    public function availability(){
-        return Availability::find($this->availability);
-    }
 
     /**
      * check if the user has not added any social media link
@@ -164,7 +155,8 @@ class User extends Authenticatable
      * upload  a profile photo,
      * add a primary role,
      * verify email,
-     * atleast add a country to the address line
+     * atleast add a country to the address line,
+     * specify number of hours they are available in a week
      * @return bool
      */
     public  function profileUpdated(){
@@ -195,13 +187,6 @@ class User extends Authenticatable
         }
     }
 
-    /**
-     * this makes the number of pending co-founders directly available in the users profile
-     * @return int
-     */
-    public function noOfPendingCofounderRequests(){
-        return count(Cofounder::where('cofounded_idea', $this->id)->where('accepted_at', null)->get());
-    }
 
 
 //

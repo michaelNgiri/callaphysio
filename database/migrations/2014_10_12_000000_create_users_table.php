@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('middle_name')->nullable();
+            $table->date('birthday')->nullable();
             $table->unsignedInteger('user_type')->default(3);
             $table->string('photo', 2000)->nullable();
             $table->string('address')->nullable();
