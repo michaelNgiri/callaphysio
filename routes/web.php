@@ -31,3 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group('as', 'show-physio.', function(){
+   Route::get('{physio}/view/map-view', 'PhysiotherapistsController@mapView');
+});
