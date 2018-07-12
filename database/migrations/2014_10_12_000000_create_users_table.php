@@ -20,13 +20,14 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('middle_name')->nullable();
             $table->date('birthday')->nullable();
-            $table->unsignedInteger('user_type')->default(3);
+            $table->unsignedInteger('user_type');
             $table->string('photo', 2000)->nullable();
             $table->string('address')->nullable();
             $table->unsignedInteger('city')->nulable();
             $table->unsignedInteger('state')->nulable();
             $table->unsignedInteger('country')->nulable();
-            $table->string('map_coordinates')->nulable();
+            $table->string('map_longitude')->nulable();
+            $table->string('map_latitude')->nulable();
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('password');
