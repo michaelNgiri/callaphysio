@@ -2,7 +2,10 @@
 
 namespace App;
 
+use App\Models\City;
+use App\Models\Country;
 use App\Models\Specialization;
+use App\Models\State;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -79,6 +82,14 @@ class User extends Authenticatable
         is_null($this->country)? $country ='': $country = Country::find($this->country)->name;
         return $country;
     }
+    public function city(){
+      !is_null($this->city)? $city = City::find($this->city): $city = null;
+        return $city;
+    }
+    public function state(){
+     !is_null($this->state)? $state = State::find($this->state): $state = null;
+        return $state;
+    }
 
     /**
      * concatenate the city, country and street address into one address line
@@ -86,12 +97,13 @@ class User extends Authenticatable
      */
     public function location(){
         $address = !is_null($this->address)? $this->address.','.' ': '';
-        $city = !is_null($this->city)? $this->city.','.' ': '';
+        $city = !is_null($this->city)? $this->city()->name.','.' ': '';
+        $state = !is_null($this->state)? $this->State()->name.'.'.' ': '';
         $country = !is_null($this->country())? $this->country(): '';
-        if (is_null($address) && is_null($city) && is_null($country)) {
+        if (is_null($address) && is_null($city) && is_null($country) && is_null($state)) {
             return null;
         }else                {
-            return $address . $city . $country;
+            return $address . $city . $state ;
         }
     }
 
