@@ -2,18 +2,22 @@
 
 @section('content')
 <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="" class="form-group left-align">
+                <label for="location">Change Location</label>
+                <select name="location" id="location" class="form-control">
+                    <option value="">Choose a different location</option>
+                    @forelse($cities as $city)
+                        <option value="{{$city->id}}">{{$city->name}}</option>
+                    @empty
+                        <p>No city here! are you in space?</p>
+                    @endforelse
+                </select>
+            </form>
+        </div>
+    </div>
     <div class="row justify-content-center">
-          <form action="" class="form-group"">
-              <label for="location">Change Location</label>
-              <select name="location" id="location" class="form-control">
-                  <option value="">Choose a different location</option>
-                  @forelse($cities as $city)
-                      <option value="{{$city->id}}">{{$city->name}}</option>
-                  @empty
-                      <p>No city here! are you in space?</p>
-                  @endforelse
-              </select>
-          </form>
               {{--<div class="card-header red-text"><b>Call a Physio</b></div>--}}
               <div class="row">
                   @forelse($physios as $physio)
@@ -31,8 +35,9 @@
                                   </div>
 
                               </div>
-                              <div class="card-footer">
-                                  <a style="color: #1d7d74;" href="{{route('show-physio.map-view',['physio'=>$physio])}}">view Location on Map</a>
+                              <div class="card-footer" style="font-size: 0.8em;">
+                                  <a style="color: #124641; float: left;" href="{{route('show-physio.map-view',['slug'=>$physio->slug])}}"><i class="mdi mdi-map-marker"></i>view Location on Map</a>
+                                  <a style="float:right; color: #ff7907;" href="{{route('show-physio.profile-view', ['slug'=>$physio->slug])}}"> View Profile</a>
                               </div>
                           </div>
                       </div>
