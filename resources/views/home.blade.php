@@ -21,7 +21,7 @@
 
                  <div class="col-md-12  red-text" style="background-color: #f3f3f3; padding: 1%;">
                      <b>Call a Physio</b>
-                 </div>
+                 </div><br>
               <div class="row">
                   @forelse($physios as $physio)
                       <div class="col-md-4">
@@ -33,18 +33,20 @@
                                       </div>
                                       <div class="col-md-8 teal-text">
                                           <p><b>{{$physio->name()}}</b></p>
-                                          <p><i class="mdi mdi-map-marker"></i>{{Str::words($physio->location(), 5,'....')}}</p>
+                                          <span><i class="mdi mdi-map-marker"></i>{{Str::words($physio->location(), 5,'....')}}</span><br>
+                                  
                                           <span title="call this physio"><i class="mdi mdi-phone-classic">{{$physio->phone}}</i></span>
+                                          <span style="font-size: .9em; color: grey;" title="call this physio"><i class="mdi mdi-mail">{{$physio->email}}</i></span><br>
                                       </div>
                                   </div>
-                                    <a class="red-text" href="" style="float: right; border: 1px solid darkred; border-radius: 10%;">Consult</a>
+                                    <a class="red-text" href="" style="padding: 2 0 2 0; float: right; border: 1px solid darkred; border-radius: 10%;" title="Consult {{' '.$physio->name()}}">Consult</a>
                               </div>
                               <div class="card-footer" style="font-size: 0.8em;">
-                                  <a style="color: #124641; float: left;" href="{{route('show-physio.map-view',['slug'=>$physio->slug])}}"><i class="mdi mdi-google-maps"></i>view Location on Map</a>
-                                  <a style="float:right; color: #ff7907;" href="{{route('show-physio.profile-view', ['slug'=>$physio->slug])}}"> View Profile</a>
+                                  <a style="color: #124641; float: left;" title="Locate {{' '.$physio->name().' '.'on Map'}}" href="{{route('show-physio.map-view',['slug'=>$physio->slug])}}"><i class="mdi mdi-google-maps"></i>view Location on Map</a>
+                                  <a style="float:right; color: #ff7907;" href="{{route('show-physio.profile-view', ['slug'=>$physio->slug])}}" title="{{'view '.$physio->name()."'s Profile"}}"> View Profile</a>
                               </div>
                           </div>
-                      </div>
+                      </div><br>
                   @empty
                       <p class="grey-text">No physio nearby</p>
                   @endforelse
