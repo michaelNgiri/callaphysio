@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         $closestPhysios = User::where('user_type', 2)->where('map_coordinates', Auth::user()->map_coordinates +- 300);
         is_null(Auth::user()->city)? $allPhysios = User::where('user_type', 2)->where('state', Auth::user()->state): $allPhysios = User::where('user_type', 2)->where('state', Auth::user()->city);
-        $physios = User::paginate();
+        $physios = User::where('user_type', 2)->paginate();
         $cities = City::all();
         return view('home', compact( 'physios','cities'));
     }

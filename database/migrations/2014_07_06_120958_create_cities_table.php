@@ -19,6 +19,13 @@ class CreateCitiesTable extends Migration
             $table->unsignedInteger('priority')->nullable();
             $table->unsignedInteger('region')->nullable();
             $table->unsignedInteger('group')->nullable();
+            $table->unsignedInteger('state')->nullable();
+
+            $table->foreign('state', 'base_state_id')
+                ->references('id')
+                ->on('states')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

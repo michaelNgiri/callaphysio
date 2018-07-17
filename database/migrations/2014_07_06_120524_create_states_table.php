@@ -19,6 +19,13 @@ class CreateStatesTable extends Migration
             $table->unsignedInteger('priority')->nullable();
             $table->unsignedInteger('region')->nullable();
             $table->unsignedInteger('group')->nullable();
+            $table->unsignedInteger('country')->nullable();
+
+            $table->foreign('country', 'base_country_id')
+                ->references('id')
+                ->on('countries')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
