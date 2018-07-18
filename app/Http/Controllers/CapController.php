@@ -15,4 +15,9 @@ class CapController extends Controller
        $cities = City::all();
        return view('home', compact('physios', 'cities', 'states'));
    }
+
+   public function consult(Request $request){
+       $physio = User::where('slug',$request->slug)->first();
+       return view('consultations.consult', compact('physio'));
+   }
 }
