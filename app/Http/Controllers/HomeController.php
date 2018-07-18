@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,10 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $closestPhysios = User::where('user_type', 2)->where('map_coordinates', Auth::user()->map_coordinates +- 300);
-        is_null(Auth::user()->city)? $allPhysios = User::where('user_type', 2)->where('state', Auth::user()->state): $allPhysios = User::where('user_type', 2)->where('state', Auth::user()->city);
-        $physios = User::where('user_type', 2)->paginate();
+        $physios = User::where('user_type', 2)->paginate(6);
         $cities = City::all();
-        return view('home', compact( 'physios','cities'));
+        return view('home', compact('physios', 'cities'));
     }
 }
