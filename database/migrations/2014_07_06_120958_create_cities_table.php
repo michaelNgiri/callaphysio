@@ -19,7 +19,7 @@ class CreateCitiesTable extends Migration
             $table->unsignedInteger('priority')->nullable();
             $table->unsignedInteger('region')->nullable();
             $table->unsignedInteger('group')->nullable();
-            $table->unsignedInteger('state')->nullable();
+            $table->unsignedInteger('state');
 
             $table->foreign('state', 'base_state_id')
                 ->references('id')

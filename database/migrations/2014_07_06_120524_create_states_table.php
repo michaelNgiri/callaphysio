@@ -19,7 +19,7 @@ class CreateStatesTable extends Migration
             $table->unsignedInteger('priority')->nullable();
             $table->unsignedInteger('region')->nullable();
             $table->unsignedInteger('group')->nullable();
-            $table->unsignedInteger('country')->nullable();
+            $table->unsignedInteger('country');
 
             $table->foreign('country', 'base_country_id')
                 ->references('id')
