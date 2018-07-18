@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Home')
 @section('content')
 <div class="container">
     <div class="row">
@@ -62,7 +62,7 @@
                                       </div>
                                   </div>
                                   <span style="font-size: .9em; color: grey; float: left;" title="call this physio"><i class="mdi mdi-mail">{{$physio->email}}</i></span><br>
-                                    <a class="red-text" href="" style=" float: right; border: 1px solid darkred; border-radius: 10%;" title="Consult {{' '.$physio->name()}}">Consult</a>
+                                    <a class="red-text" href="{{route('consultations.consult', ['slug'=>$physio->slug])}}" style=" float: right; border: 1px solid darkred; border-radius: 10%;" title="Consult {{' '.$physio->name()}}">Consult</a>
                               </div>
                               <div class="card-footer" style="font-size: 0.8em;">
                                   <a style="color: #124641; float: left;" title="Locate {{' '.$physio->name().' '.'on Map'}}" href="{{route('show-physio.map-view',['slug'=>$physio->slug])}}"><i class="mdi mdi-google-maps"></i>view Location on Map</a>
