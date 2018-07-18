@@ -17,20 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/subscription', 'SubscriptionController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['as'=>'show-physio.'], function(){
    Route::get('{slug}/view/map-view', 'PhysiotherapistsController@mapView')->name('map-view');
