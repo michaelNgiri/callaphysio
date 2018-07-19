@@ -34,12 +34,12 @@
                                       <div class="col-md-8 teal-text">
                                           <p><b>{{$physio->name()}}</b></p>
                                           <span><i class="mdi mdi-map-marker"></i>{{Str::words($physio->location(), 5,'....')}}</span><br>
-                                  
+
                                           <span title="call this physio"><i class="mdi mdi-phone-classic">{{$physio->phone}}</i></span>
                                           <span style="font-size: .9em; color: grey;" title="call this physio"><i class="mdi mdi-mail">{{$physio->email}}</i></span><br>
                                       </div>
                                   </div>
-                                    <a class="red-text" href="" style="padding: 2 0 2 0; float: right; border: 1px solid darkred; border-radius: 10%;" title="Consult {{' '.$physio->name()}}">Consult</a>
+                                    <a class="red-text" href="" style="padding: inherit; float: right; border: 1px solid darkred; border-radius: 10%;" title="Consult {{' '.$physio->name()}}">Consult</a>
                               </div>
                               <div class="card-footer" style="font-size: 0.8em;">
                                   <a style="color: #124641; float: left;" title="Locate {{' '.$physio->name().' '.'on Map'}}" href="{{route('show-physio.map-view',['slug'=>$physio->slug])}}"><i class="mdi mdi-google-maps"></i>view Location on Map</a>
