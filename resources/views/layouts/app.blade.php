@@ -82,5 +82,6 @@
     <script src="{{ asset('js/jquery3.3.1.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery.dropdown.min.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
+@yield('page_scripts')
 </body>
 </html>
