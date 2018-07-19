@@ -19,7 +19,6 @@ let mix = require('laravel-mix');
             'resources/assets/js/bootstrap.bundle.js',
             'resources/assets/js/jquery3.3.1.js',
             'resources/assets/js/materialize.min.js'
-
         ], 
         'public/js/app.js')
    .styles([
