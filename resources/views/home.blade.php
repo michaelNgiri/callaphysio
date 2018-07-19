@@ -9,10 +9,11 @@
                     <label for="location">Change Location</label>
                     <select name="state" id="state" class="form-control">
                         <option value="">Choose a different State</option>
+                        <option class="red-text darken-4" value="">Show All</option>
                         @forelse($states as $state)
                             @if(!is_null($currentState))
                                 @if($state->id == $currentState->id)
-                                    <option name="state" value="{{$state->id}}" selected>{{$state->name}}</option>
+                                    <option class="red-text darken-4" name="state" value="{{$state->id}}" selected>{{$state->name}}</option>
                                 @else
                                     <option name="state" value="{{$state->id}}">{{$state->name}}</option>
                                 @endif
@@ -85,4 +86,18 @@
             @endforelse
         </div>
     </div>
+@endsection
+@section('page_scripts')
+{{--<script>--}}
+    {{--var currentState = '{{$currentState->name}}';--}}
+    {{--console.log(currentState);--}}
+    {{--var locationInfo;--}}
+        {{--if(currentState = null){--}}
+            {{--locationInfo = 'please go to your profile and set your location'--}}
+        {{--} else {--}}
+            {{--locationInfo = 'you are currently in '.currentState;--}}
+        {{--}--}}
+        {{--console.log(locationInfo);--}}
+    {{--document.ready(alert(locationInfo));--}}
+{{--</script>--}}
 @endsection

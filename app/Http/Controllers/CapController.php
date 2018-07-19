@@ -13,14 +13,16 @@ class CapController extends Controller
     public function index(){
         if (Auth::check()){
             if (is_null(Auth::user()->state)){
+            $physios = User::where('user_type', 2)->paginate(6);
             $currentState = null;
             }else{
+            $physios = User::where('user_type', 2)->where('state', Auth::user()->state)->paginate(6);
             $currentState = State::find(Auth::user()->state);
             }
         }else{
+            $physios = User::where('user_type', 2)->paginate(6);
             $currentState = null;
         }
-        $physios = User::where('user_type', 2)->paginate(6);
         $states = State::all();
         $cities = City::all();
         return view('home', compact('physios', 'cities', 'states', 'currentState'));
