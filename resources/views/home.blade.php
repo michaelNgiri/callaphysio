@@ -4,8 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <form action="{{route('home.filter-by-state')}}" method="post" class="form-group left-align" style="display: inline;">
-                    @csrf
+                <form action="{{route('home.filter-by-state')}}" method="get" class="form-group left-align" style="display: inline;">
                     <label for="location">Change Location</label>
                     <select name="state" id="state" class="form-control">
                         <option value="">Choose a different State</option>
@@ -84,6 +83,9 @@
             @empty
                 <p class="grey-text">No physio nearby</p>
             @endforelse
+        </div>
+        <div class="card-footer">
+            <p style="float: right;">{{$physios->appends($_GET)->links()}}</p>
         </div>
     </div>
 @endsection
