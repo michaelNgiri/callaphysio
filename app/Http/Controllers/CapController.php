@@ -29,10 +29,14 @@ class CapController extends Controller
     }
 
     public function applyFilter(Request $request){
-        $physios = User::where('user_type', 2)->where('state', $request->state)->paginate(6);
+        if (is_null($request->state)){
+            $physios = User::where('user_type', 2)->paginate(6);
+        }else {
+            $physios = User::where('user_type', 2)->where('state', $request->state)->paginate(6);
+        }
         $states = State::all();
-        $currentState = State::find($request->state);
-        $cities = City::where('state', $request->state)->get();
+        !is_null($request->state)? $currentState = State::find($request->state): $currentState = null;
+        !is_null($request->state)?  $cities = City::where('state', $request->state)->get(): $cities = City::all();
         return view('home', compact('physios', 'cities', 'states', 'currentState'));
 
     }

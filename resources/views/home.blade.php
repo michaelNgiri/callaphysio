@@ -34,7 +34,7 @@
                     {{--@endforelse--}}
                     {{--</select>--}}
                     {{--</div>--}}
-                    <button style="float: right;" type="submit" class="btn teal white-text">Go</button>
+                    <button style="float: right;" type="submit" class="btn grey white-text">Go</button>
                 </form>
             </div>
         </div>
