@@ -4,8 +4,10 @@
 <div class="container">
     <div class="row">
     <div class="col-md-12">
-        <div class="card">
+        <div class="card" style="text-align: center;">
             <div class="card-header">
+                <!-- <img style="float: left; border-radius: 30%;" height="40" width="50" src="{{asset('img/profile-pictures/default-physio.jpg')}}"> -->
+                <span style="float: left; font-style: italic;"><i class="mdi mdi-message blue-grey-text"></i>[offline]</span>
                 <b class="grey-text">Consult {{$physio->name()}}</b> <img style="float: right; border-radius: 30%;" height="40" width="50" src="{{asset($physio->photo())}}" alt="{{$physio->name()." 's picture"}}">
             </div>
             <div class="card-body">
