@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', $user->name(). "'s profile" )
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -13,7 +13,7 @@
                     @auth
                     <div class="card-body">
                         <div class="profileHeader alert alert-warning center-align">
-                            <img height="120px" width="100px" src="{{asset($user->imagePath())}}">
+                            <img height="120px" width="100px" src="{{asset($user->photo())}}">
 
                             <hr>
                             {{--<div class="connectionLinks inline" style="display: inline-flex;" >--}}
@@ -89,11 +89,11 @@
                     </div>
                     <div class="card-footer">
                         @if($user->hasNoSocial())
-                            <p class="teal-text pull-right"><b class="grey-text pull-left">Socials:</b>
+                            <p class="teal-text pull-right"><b class="grey-text pull-right"></b>
                                 <i class="mdi mdi-emoticon-sad">No Social</i>
                             </p>
                         @else
-                            <div class="socials inline pull-right" style="font-size: 2em;"><b class="grey-text pull-left">Socials:</b>
+                            <div class="socials inline pull-right" style="font-size: 2em;"><b class="grey-text pull-left"></b>
                                 @if(!is_null($user->facebook))
                                     <a title="{{'Find'.' '.$user->first_name.' '.'on Facebook'}}" style="padding: 8px;" class="social" target="_blank" href="{{$user->facebook()}}"><i class="mdi mdi-facebook blue-text darken-5"></i></a>
                                 @endif
@@ -116,7 +116,7 @@
                     @else
                         <div class="card-body center-align">
                             <div class="profileHeader alert alert-warning">
-                                <img height="120px" width="100px" src="{{asset($user->imagePath())}}">
+                                <img height="120px" width="100px" src="{{asset($user->photo())}}">
                             </div>
                             <div class="profileDetails center-align teal-text"><hr>
                                 <b>{{$user->name()}}</b>
