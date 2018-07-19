@@ -26,3 +26,7 @@ Route::group(['as'=>'show-physio.'], function(){
    Route::get('{slug}/view/map-view', 'PhysiotherapistsController@mapView')->name('map-view');
     Route::get('{slug}/view/profile-view', 'PhysiotherapistsController@profileView')->name('profile-view');
 });
+
+Route::group(['as'=>'profiles.'], function (){
+    Route::get('{user-slug}/view-profile', 'ProfileController@viewProfile')->name('view-profile');
+});
