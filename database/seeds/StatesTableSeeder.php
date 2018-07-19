@@ -48,7 +48,7 @@ class StatesTableSeeder extends Seeder
                 'Taraba',
                 'Yobe',
                 'Zamfara',
-                'Abuja(Federal Capital Territory)'
+                'Abuja-Fct'
        ];
 
        foreach ($states as $state){

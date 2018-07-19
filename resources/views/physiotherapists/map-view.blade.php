@@ -7,7 +7,7 @@
                     <div class="card-header red-text">
                         Locate <b>{{$physio->name()}}</b> on Map
                         <span style="float: right;">
-                        <img style=" border-radius: 20%;" height="48em" width="48em" src="{{asset($physio->imagePath())}}" alt="">
+                        <img style=" border-radius: 20%;" height="48em" width="48em" src="{{asset($physio->photo())}}" alt="">
                     </span>
                     </div>
                     <div class="card-body">

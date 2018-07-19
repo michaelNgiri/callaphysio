@@ -35,9 +35,14 @@ class User extends Authenticatable
         return $this->first_name.' '.$this->last_name;
     }
 
-    public function imagePath(){
+    public function photo(){
+        if ($this->user_type == 2){
+            $default = asset('img/profile-pictures/default-physio.jpg');
+        }else{
+            $default = asset('img/profile-pictures/default.jpg');
+        }
 
-        $filename = is_null($this->image_path) ? asset('img/profile-pictures/default.jpg') : $this->image_path;
+        $filename = is_null($this->photo) ? $default : $this->photo;
 
         return $filename;
     }
