@@ -7,13 +7,12 @@ use App\Subscription;
 
 class SubscriptionController extends Controller
 {
-    //
-    public function index(){
+    //function not ready for use yet
+    public function index(Request $request){
         $subscription = Subscription::all();
         $me = auth()->user()->id;
-        dd($me);
         $mySubscription = Subscription::find($me);
         
-        return view('cap.subscription.index', compact('subscriptions'));
+        return view('cap.subscription.index', compact('subscription', 'mySubscription'));
     }
 }
