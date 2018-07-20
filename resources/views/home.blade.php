@@ -1,11 +1,17 @@
 @extends('layouts.app')
 @section('title', 'Home')
+@section('page_meta')
+<meta charset="UTF-8">
+  <meta name="description" content="Call a physio homepage, consult physiotherapists">
+  <meta name="keywords" content="physotherapists, physiotherapy, online physiotherapy, consult physiotherapists, physiotherapists in your city">
+  <meta name="author" content="Michael Ngiri">
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <form action="{{route('home.filter-by-state')}}" method="get" class="form-group left-align" style="display: inline;">
-                    <label for="location">Change Location</label>
+                    <label for="state">Change Location</label>
                     <select name="state" id="state" class="form-control">
                         <option value="">Choose a different State</option>
                         <option class="red-text darken-4" value="">Show All</option>
@@ -33,7 +39,7 @@
                     {{--@endforelse--}}
                     {{--</select>--}}
                     {{--</div>--}}
-                    <button style="float: right;" type="submit" class="btn grey white-text">Go</button>
+                    <button style="float: right;" type="submit" class="btn grey darken-2 white-text">Go</button>
                 </form>
             </div>
         </div>
@@ -62,7 +68,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img height="60" width="60" style="border-radius: 20%;" src="{{asset($physio->photo())}}" alt="picture of {{$physio->name()}}">
+                                    <img style="max-height: 60px; min-width: 60px; height: auto; width: auto; border-radius: 20%;" src="{{asset($physio->photo())}}" alt="picture of {{$physio->name()}}">
                                 </div>
                                 <div class="col-md-8 teal-text">
                                     <p style="text-transform: capitalize; color: gray;"><b>{{$physio->name()}}</b></p>
@@ -71,12 +77,12 @@
                                     <span title="call this physio"><i class="mdi mdi-phone-classic">{{$physio->phone}}</i></span>
                                 </div>
                             </div>
-                            <span style="font-size: .9em; color: grey; float: left;" title="call this physio"><i class="mdi mdi-mail">{{$physio->email}}</i></span><br>
+                            <span style="font-size: 1em; color: grey; float: left;" title="call this physio"><i class="mdi mdi-mail">{{$physio->email}}</i></span><br>
                             <a class="red-text" href="{{route('consultations.consult', ['slug'=>$physio->slug])}}" style=" float: right; border: 1px solid darkred; border-radius: 10%;" title="Consult {{' '.$physio->name()}}">Consult</a>
                         </div>
-                        <div class="card-footer" style="font-size: 0.8em;">
+                        <div class="card-footer" style="font-size: 16px;">
                             <a style="color: #124641; float: left;" title="Locate {{' '.$physio->name().' '.'on Map'}}" href="{{route('show-physio.map-view',['slug'=>$physio->slug])}}"><i class="mdi mdi-google-maps"></i>view Location on Map</a>
-                            <a style="float:right; color: #ff7907;" href="{{route('show-physio.profile-view', ['slug'=>$physio->slug])}}" title="{{'view '.$physio->name()."'s Profile"}}"> View Profile</a>
+                            <a style="float:right; color: #ff7907; font-size: 16px;" href="{{route('show-physio.profile-view', ['slug'=>$physio->slug])}}" title="{{'view '.$physio->name()."'s Profile"}}"> View Profile</a>
                         </div>
                     </div>
                 </div><br>

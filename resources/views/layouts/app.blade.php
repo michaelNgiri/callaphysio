@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#ee6e73">
+    <link rel="apple-touch-startup-image" href="{{asset('favicon.ico')}}">
+    <!-- app icon -->
+    <link rel="icon" sizes="192x192" href="{{asset('favicon.ico')}}">
+    <!-- favicon -->
+    @yield('page_metas')
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,6 +36,7 @@
         nav{
             border-bottom: 0.1em solid red !important;
         }
+        
     </style>
 </head>
 <body>
@@ -63,7 +71,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form{{Request::url()}}').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -72,7 +80,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form{{Request::url()}}" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
                         @endguest
@@ -87,10 +95,41 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery3.3.1.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery.dropdown.min.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript">
+
+    var elem = document.createElement('script');
+
+    elem.onload = function () {
+
+        jQuery(document).ready(function () {
+
+            var bootstrap = document.createElement('script');
+
+            bootstrap.src = 'bootstrap src here';
+
+            document.getElementsByTagName('head')[0].appendChild(bootstrap);
+
+ 
+
+ 
+
+                //add whatever other javascript/jquery you would like
+
+ 
+
+        });
+
+    };
+
+    elem.src = 'jquery src here';
+
+    document.getElementsByTagName('head')[0].appendChild(elem);
+
+</script>
 @yield('page_scripts')
 </body>
 </html>
