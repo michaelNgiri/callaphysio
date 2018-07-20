@@ -21,19 +21,28 @@
     <link href="{{ asset('assets/mdi/fonts/materialdesignicons-webfont.woff2') }}" rel="stylesheet">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .page-item.active .page-link{
+            background-color: #ee6e73;
+            border-color: #ee6e73;
+        }
+        nav{
+            border-bottom: 0.1em solid red !important;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md red darken-4 " style="color:#fff;">
+        <nav class="navbar navbar-expand-md white red-text darken-4 " style="color:#fff;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}" style="color: white;" title="Return to homepage">
+                <a class="navbar-brand" href="{{ url('/') }}" style="color: #ee6e73;" title="Return to homepage">
                     <b>{{ config('app.name', 'cap') }}</b>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div style="color: white;" class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div style="color: #ee6e73;" class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
@@ -43,11 +52,11 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a style="color: #ee6e73;" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a style="color: #ee6e73;" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item dropdown">
-                                <a style="text-transform: capitalize;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a style="text-transform: capitalize; color: #ee6e73;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name() }} <span class="caret"></span>
                                 </a>
 
