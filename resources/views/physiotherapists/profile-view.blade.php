@@ -13,7 +13,7 @@
                     @auth
                     <div class="card-body">
                         <div class="profileHeader alert alert-warning center-align">
-                            <img height="120px" width="100px" src="{{asset($user->photo())}}">
+                            <img height="120px" width="100px" style="border-radius: 10%;" src="{{asset($user->photo())}}">
 
                             <hr>
                             {{--<div class="connectionLinks inline" style="display: inline-flex;" >--}}
@@ -116,7 +116,7 @@
                     @else
                         <div class="card-body center-align">
                             <div class="profileHeader alert alert-warning">
-                                <img height="120px" width="100px" src="{{asset($user->photo())}}">
+                                <img height="120px" width="100px" style="border-radius: 10%;" src="{{asset($user->photo())}}">
                             </div>
                             <div class="profileDetails center-align teal-text"><hr>
                                 <b>{{$user->name()}}</b>
