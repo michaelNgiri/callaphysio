@@ -29,7 +29,7 @@ class CapController extends Controller
     }
 
     public function applyFilter(Request $request){
-        if (is_null($request->state)){
+        if ($request->state == 'All'){
             $physios = User::where('user_type', 2)->paginate(6);
         }else {
             $physios = User::where('user_type', 2)->where('state', $request->state)->paginate(6);

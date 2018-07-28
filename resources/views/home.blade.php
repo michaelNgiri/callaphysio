@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Home')
-@section('page_meta')
+@section('page_metas')
 <meta charset="UTF-8">
-  <meta name="description" content="Call a physio homepage, consult physiotherapists">
+  <meta name="Description" content="Call a physio homepage, consult physiotherapists">
   <meta name="keywords" content="physotherapists, physiotherapy, online physiotherapy, consult physiotherapists, physiotherapists in your city">
   <meta name="author" content="Michael Ngiri">
 @endsection
@@ -11,10 +11,10 @@
         <div class="row">
             <div class="col-md-4">
                 <form action="{{route('home.filter-by-state')}}" method="get" class="form-group left-align" style="display: inline;">
-                    <label for="state">Change Location</label>
+                    <label style="font-size: 1em;" for="state">Change Location</label>
                     <select name="state" id="state" class="form-control">
                         <option value="">Choose a different State</option>
-                        <option class="red-text darken-4" value="">Show All</option>
+                        <option class="red-text darken-4" value="All">Show All</option>
                         @forelse($states as $state)
                             @if(!is_null($currentState))
                                 @if($state->id == $currentState->id)
@@ -77,7 +77,7 @@
                                     <span title="call this physio"><i class="mdi mdi-phone-classic">{{$physio->phone}}</i></span>
                                 </div>
                             </div>
-                            <span style="font-size: 1em; color: grey; float: left;" title="call this physio"><i class="mdi mdi-mail">{{$physio->email}}</i></span><br>
+                            <span style="font-size: 1.2em; color: grey; float: left;" title="call this physio"><i class="mdi mdi-mail">{{$physio->email}}</i></span><br>
                             <a class="red-text" href="{{route('consultations.consult', ['slug'=>$physio->slug])}}" style=" float: right; border: 1px solid darkred; border-radius: 10%;" title="Consult {{' '.$physio->name()}}">Consult</a>
                         </div>
                         <div class="card-footer" style="font-size: 16px;">

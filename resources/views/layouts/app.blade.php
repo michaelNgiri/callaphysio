@@ -99,7 +99,7 @@
     <script src="{{ asset('js/jquery.dropdown.min.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 
     var elem = document.createElement('script');
 
@@ -129,7 +129,7 @@
 
     document.getElementsByTagName('head')[0].appendChild(elem);
 
-</script>
+</script> -->
 @yield('page_scripts')
 </body>
 </html>
