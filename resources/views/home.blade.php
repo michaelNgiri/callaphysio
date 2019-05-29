@@ -29,6 +29,24 @@
                             <p>No state here! are you in space?</p>
                         @endforelse
                     </select>
+                        <!-- <input list="states">
+                        <datalist id="states">
+                            <option value="">Choose a different State</option>
+                        <option class="red-text darken-4" value="All">Show All</option>
+                        @forelse($states as $state)
+                            @if(!is_null($currentState))
+                                @if($state->id == $currentState->id)
+                                    <option class="red-text darken-4" name="state" value="{{$state->id}}" selected>{{$state->name}}</option>
+                                @else
+                                    <option name="state" value="{{$state->id}}">{{$state->name}}</option>
+                                @endif
+                            @else
+                                <option name="state" value="{{$state->id}}">{{$state->name}}</option>
+                            @endif
+                        @empty
+                            <p>No state here! are you in space?</p>
+                        @endforelse
+                        </datalist> -->
                     {{--<div class="col-md-10">--}}
                     {{--<select name="city" id="city" class="form-control">--}}
                     {{--<option value="">Choose a different City</option>--}}
@@ -58,6 +76,12 @@
         {{--</div>--}}
         {{--</div>--}}
         <div class="row justify-content-center">
+                        <input list="states">
+                        <datalist id="states">
+                            <option value="aaa"></option>
+                            <option value="bbb"></option>
+                            <option value="ccc"></option>
+                        </datalist>
 
             <div class="col-md-12  red-text" style="background-color: #f3f3f3; padding: 1%;">
                 <b>Call a Physio</b>
